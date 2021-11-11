@@ -1,0 +1,136 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h1 class="mb-4 pb-2 pb-md-0 mb-md-5">SignUp Form</h1>
+                        <form class="form-group" [formGroup]="signupForm" (ngSubmit)="onSubmit()"
+                        >
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline"  [ngClass]="{'has-error': formErrors.fname}">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input formControlName="fname" type="text" id="firstName"
+                                            class="form-control form-control-lg" (blur)="logValidationErrors()" />
+                                        <small class="text-danger" *ngIf="formErrors.fname">{{formErrors.fname}}</small>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline"  [ngClass]="{'has-error': formErrors.lname}">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input formControlName="lname" type="text" id="lastName"
+                                            class="form-control form-control-lg"
+                                            (blur)="logValidationErrors()" />
+                                        <div >
+                                            <small *ngIf="formErrors.lname" class="text-danger">{{formErrors.lname}}</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                    <div class="form-outline datepicker w-100">
+                                        <label for="birthdayDate" class="form-label">Birthday</label>
+                                        <input formControlName="bday" type="text" class="form-control form-control-lg"
+                                            id="birthdayDate" />
+                                        <small *ngIf="f.bday.invalid && f.bday.touched" class="text-danger">Please
+                                            enterBirth date</small>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+
+                                    <h6 class="mb-2 pb-1">Gender </h6>
+
+                                    <div class="form-check form-check-inline">
+                                        <input formControlName="gender" class="form-check-input" type="radio"
+                                            id="femaleGender" value="female" />
+                                        <label class="form-check-label" for="femaleGender">Female</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class=" form-check-input" type="radio" formControlName="gender"
+                                            id="maleGender" value="male" />
+                                        <label class="form-check-label" for="maleGender">Male</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" formControlName="gender"
+                                            id="otherGender" value="other" />
+                                        <label class="form-check-label" for="otherGender">Other</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="emailAddress">Email</label>
+                                        <input formControlName="email" type="email" id="emailAddress"
+                                            class="form-control form-control-lg" />
+                                        <small *ngIf="f.email.invalid && f.email.touched" class="text-danger">Please
+                                            enter email</small>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                                        <input formControlName="phoneNumber" type="tel" id="phoneNumber"
+                                            class="form-control form-control-lg" />
+                                        <small *ngIf="f.phoneNumber.invalid && f.phoneNumber.touched"
+                                            class="text-danger">Please enter phone number</small>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div formControlName="city">
+                                        <label class="form-label select-label">City</label>
+                                    </div>
+                                    <select formControlName="city" class="select form-control-lg"
+                                        [ngClass]="{'is-invalid':f.city.touched && f.city.invalid}">
+                                        <option value="1" selected="selected" disabled>select city</option>
+                                        <option value="2">Pune</option>
+                                        <option value="3">Nashik</option>
+                                        <option value="4">Nagpur</option>
+
+                                    </select>
+                                    <small *ngIf="f.city.invalid && f.city.touched" class="text-danger">Please select
+                                        city</small>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 pt-2 ">
+
+                                <button [disabled]="signupForm.invalid" (click)="clickbtn()" class="btn btn-primary"
+                                    type="button" value="Submit">Submit</button>
+
+                                <button (click)="onLoadDataClick()" class="btn btn-primary " type="button"
+                                    value="button">Load Data </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
