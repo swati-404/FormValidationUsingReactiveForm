@@ -1,12 +1,12 @@
 
-export interface formErrors {
-  fname:string;
-  lname:string;
-  bday:string;
-  gender:string;
-  city:string ;
-  email:string;
-  phoneNumber:string;
+export class formErrors {
+  fname:string="";
+  lname:string="";
+  bday:string="";
+  gender:string="";
+  city:string ="";
+  email:string="";
+  phoneNumber:string="";
 };
 export class validationMessage{
   fname:object = {
